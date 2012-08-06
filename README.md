@@ -22,3 +22,8 @@ If you desire to destroy an already created release.
 
     $ rake tagger:rollback
 
+Authors
+-------
+
+* Lucas Rosa Galego :: lucas@galego.me :: @lrgalego
+* Paulo Vitor Ragonha :: paulo@ragonha.me :: @pirelenito
