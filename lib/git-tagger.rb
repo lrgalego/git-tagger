@@ -13,7 +13,6 @@ namespace :tagger do
 
   task :tag => :tag_name do
     sh %{git checkout -b release-#{@tag_name}}
-    sh %{git add -f release}
     sh %{git commit -m 'release #{@tag_name}'}
     sh %{git tag #{@tag_name}}
     sh %{git push origin release-#{@tag_name}}
@@ -23,7 +22,7 @@ namespace :tagger do
 
   task :rollback do
     puts "Tag to destroy:"
-    tag_name = "sinatra-#{STDIN.gets.to_s.chomp}"
+    tag_name = "#{STDIN.gets.to_s.chomp}"
     sh %{git push origin :refs/tags/#{tag_name}}
     sh %{git tag -d #{tag_name}}
     sh %{git push origin :release-#{tag_name}}
