@@ -13,6 +13,8 @@ namespace :tagger do
 
   task :tag => :tag_name do
     sh %{git checkout -b release-#{@tag_name}}
+    sh %{echo #{@tag_name} > VERSION_NAME}
+    sh %{git add VERSION_NAME}
     sh %{git commit -m 'release #{@tag_name}'}
     sh %{git tag #{@tag_name}}
     sh %{git push origin release-#{@tag_name}}
